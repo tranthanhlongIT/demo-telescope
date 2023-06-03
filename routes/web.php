@@ -21,3 +21,7 @@ Route::get('/', function () {
 Route::get('/throw-exception', [DemoController::class, 'throwException']);
 Route::get('/users', [DemoController::class, 'getAllUser']);
 Route::get('/users/{user}', [DemoController::class, 'getUser']);
+
+Route::get('/login', function () {
+    session(['admin_is_superadmin' => 1]);
+});

@@ -1,6 +1,7 @@
 <?php
 
-use Laravel\Telescope\Http\Middleware\Authorize;
+use App\Http\Middleware\telescopeAuthorize;
+// use Laravel\Telescope\Http\Middleware\Authorize;
 use Laravel\Telescope\Watchers;
 
 return [
@@ -46,7 +47,7 @@ return [
 
     'storage' => [
         'database' => [
-            'connection' => env('DB_CONNECTION', 'mysql'),
+            'connection' => env('TELESCOPE_DB_CONNECTION', 'mysql'),
             'chunk' => 1000,
         ],
     ],
@@ -77,7 +78,8 @@ return [
 
     'middleware' => [
         'web',
-        Authorize::class,
+        TelescopeAuthorize::class,
+        // Authorize::class,
     ],
 
     /*
